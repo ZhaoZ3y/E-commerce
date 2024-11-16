@@ -6,94 +6,11 @@ import (
 	"context"
 	"fmt"
 	"github.com/apache/thrift/lib/go/thrift"
+	"gomall/app/frontend/hertz_gen/frontend/common"
 )
 
-type Empty struct {
-}
-
-func NewEmpty() *Empty {
-	return &Empty{}
-}
-
-func (p *Empty) InitDefault() {
-}
-
-var fieldIDToName_Empty = map[int16]string{}
-
-func (p *Empty) Read(iprot thrift.TProtocol) (err error) {
-
-	var fieldTypeId thrift.TType
-	var fieldId int16
-
-	if _, err = iprot.ReadStructBegin(); err != nil {
-		goto ReadStructBeginError
-	}
-
-	for {
-		_, fieldTypeId, fieldId, err = iprot.ReadFieldBegin()
-		if err != nil {
-			goto ReadFieldBeginError
-		}
-		if fieldTypeId == thrift.STOP {
-			break
-		}
-		if err = iprot.Skip(fieldTypeId); err != nil {
-			goto SkipFieldTypeError
-		}
-		if err = iprot.ReadFieldEnd(); err != nil {
-			goto ReadFieldEndError
-		}
-	}
-	if err = iprot.ReadStructEnd(); err != nil {
-		goto ReadStructEndError
-	}
-
-	return nil
-ReadStructBeginError:
-	return thrift.PrependError(fmt.Sprintf("%T read struct begin error: ", p), err)
-ReadFieldBeginError:
-	return thrift.PrependError(fmt.Sprintf("%T read field %d begin error: ", p, fieldId), err)
-SkipFieldTypeError:
-	return thrift.PrependError(fmt.Sprintf("%T skip field type %d error", p, fieldTypeId), err)
-
-ReadFieldEndError:
-	return thrift.PrependError(fmt.Sprintf("%T read field end error", p), err)
-ReadStructEndError:
-	return thrift.PrependError(fmt.Sprintf("%T read struct end error: ", p), err)
-}
-
-func (p *Empty) Write(oprot thrift.TProtocol) (err error) {
-
-	if err = oprot.WriteStructBegin("Empty"); err != nil {
-		goto WriteStructBeginError
-	}
-	if p != nil {
-	}
-	if err = oprot.WriteFieldStop(); err != nil {
-		goto WriteFieldStopError
-	}
-	if err = oprot.WriteStructEnd(); err != nil {
-		goto WriteStructEndError
-	}
-	return nil
-WriteStructBeginError:
-	return thrift.PrependError(fmt.Sprintf("%T write struct begin error: ", p), err)
-WriteFieldStopError:
-	return thrift.PrependError(fmt.Sprintf("%T write field stop error: ", p), err)
-WriteStructEndError:
-	return thrift.PrependError(fmt.Sprintf("%T write struct end error: ", p), err)
-}
-
-func (p *Empty) String() string {
-	if p == nil {
-		return "<nil>"
-	}
-	return fmt.Sprintf("Empty(%+v)", *p)
-
-}
-
 type HomeService interface {
-	Home(ctx context.Context, e *Empty) (r *Empty, err error)
+	Home(ctx context.Context, e *common.Empty) (r *common.Empty, err error)
 }
 
 type HomeServiceClient struct {
@@ -122,7 +39,7 @@ func (p *HomeServiceClient) Client_() thrift.TClient {
 	return p.c
 }
 
-func (p *HomeServiceClient) Home(ctx context.Context, e *Empty) (r *Empty, err error) {
+func (p *HomeServiceClient) Home(ctx context.Context, e *common.Empty) (r *common.Empty, err error) {
 	var _args HomeServiceHomeArgs
 	_args.E = e
 	var _result HomeServiceHomeResult
@@ -192,7 +109,7 @@ func (p *homeServiceProcessorHome) Process(ctx context.Context, seqId int32, ipr
 	iprot.ReadMessageEnd()
 	var err2 error
 	result := HomeServiceHomeResult{}
-	var retval *Empty
+	var retval *common.Empty
 	if retval, err2 = p.handler.Home(ctx, args.E); err2 != nil {
 		x := thrift.NewTApplicationException(thrift.INTERNAL_ERROR, "Internal error processing Home: "+err2.Error())
 		oprot.WriteMessageBegin("Home", thrift.EXCEPTION, seqId)
@@ -222,7 +139,7 @@ func (p *homeServiceProcessorHome) Process(ctx context.Context, seqId int32, ipr
 }
 
 type HomeServiceHomeArgs struct {
-	E *Empty `thrift:"e,1"`
+	E *common.Empty `thrift:"e,1"`
 }
 
 func NewHomeServiceHomeArgs() *HomeServiceHomeArgs {
@@ -232,9 +149,9 @@ func NewHomeServiceHomeArgs() *HomeServiceHomeArgs {
 func (p *HomeServiceHomeArgs) InitDefault() {
 }
 
-var HomeServiceHomeArgs_E_DEFAULT *Empty
+var HomeServiceHomeArgs_E_DEFAULT *common.Empty
 
-func (p *HomeServiceHomeArgs) GetE() (v *Empty) {
+func (p *HomeServiceHomeArgs) GetE() (v *common.Empty) {
 	if !p.IsSetE() {
 		return HomeServiceHomeArgs_E_DEFAULT
 	}
@@ -306,7 +223,7 @@ ReadStructEndError:
 }
 
 func (p *HomeServiceHomeArgs) ReadField1(iprot thrift.TProtocol) error {
-	_field := NewEmpty()
+	_field := common.NewEmpty()
 	if err := _field.Read(iprot); err != nil {
 		return err
 	}
@@ -369,7 +286,7 @@ func (p *HomeServiceHomeArgs) String() string {
 }
 
 type HomeServiceHomeResult struct {
-	Success *Empty `thrift:"success,0,optional"`
+	Success *common.Empty `thrift:"success,0,optional"`
 }
 
 func NewHomeServiceHomeResult() *HomeServiceHomeResult {
@@ -379,9 +296,9 @@ func NewHomeServiceHomeResult() *HomeServiceHomeResult {
 func (p *HomeServiceHomeResult) InitDefault() {
 }
 
-var HomeServiceHomeResult_Success_DEFAULT *Empty
+var HomeServiceHomeResult_Success_DEFAULT *common.Empty
 
-func (p *HomeServiceHomeResult) GetSuccess() (v *Empty) {
+func (p *HomeServiceHomeResult) GetSuccess() (v *common.Empty) {
 	if !p.IsSetSuccess() {
 		return HomeServiceHomeResult_Success_DEFAULT
 	}
@@ -453,7 +370,7 @@ ReadStructEndError:
 }
 
 func (p *HomeServiceHomeResult) ReadField0(iprot thrift.TProtocol) error {
-	_field := NewEmpty()
+	_field := common.NewEmpty()
 	if err := _field.Read(iprot); err != nil {
 		return err
 	}

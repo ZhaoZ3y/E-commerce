@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="ALL" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="dc590fba-7208-4bd8-bd36-46455538140a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/frontend/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/frontend/biz/service/login.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/frontend/biz/service/register.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/frontend/template/require.tmpl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/frontend/template/sign-in.tmpl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/frontend/template/sign-up.tmpl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/idl/frontend/auth_page.thrift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/idl/frontend/common.thrift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gomall.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gomall.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/frontend/biz/handler/frontend/home/home_service.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/biz/handler/frontend/home/home_service.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/frontend/biz/router/frontend/home/home.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/biz/router/frontend/home/home.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/frontend/biz/router/register.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/biz/router/register.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/frontend/biz/service/home.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/biz/service/home.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/frontend/biz/utils/resp.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/biz/utils/resp.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/frontend/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/frontend/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/frontend/hertz_gen/frontend/home/home.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/hertz_gen/frontend/home/home.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/frontend/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/frontend/template/header.tmpl" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/template/header.tmpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/frontend/template/home.tmpl" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/template/home.tmpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/demo_proto/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/demo_proto/biz/dal/init.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/demo_proto/biz/dal/mysql/init.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/demo_proto/biz/dal/redis/init.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/demo_proto/biz/service/echo.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/demo_proto/biz/service/echo_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/demo_proto/build.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/demo_proto/cmd/client/main.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/demo_proto/conf/conf.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/demo_proto/conf/dev/conf.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/demo_proto/conf/online/conf.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/demo_proto/conf/test/conf.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/demo_proto/docker-compose.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/demo_proto/go.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/demo_proto/go.sum" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/demo_proto/handler.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/demo_proto/kitex_gen/pbapi/echo.pb.fast.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/demo_proto/kitex_gen/pbapi/echo.pb.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/demo_proto/kitex_gen/pbapi/echo/client.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/demo_proto/kitex_gen/pbapi/echo/echo.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/demo_proto/kitex_gen/pbapi/echo/invoker.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/demo_proto/kitex_gen/pbapi/echo/server.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/demo_proto/kitex_info.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/demo_proto/main.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/demo_proto/readme.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/demo_proto/script/bootstrap.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.work" beforeDir="false" afterPath="$PROJECT_DIR$/go.work" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.work.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.work.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/google/protobuf/any.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/google/protobuf/api.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/google/protobuf/compiler/plugin.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/google/protobuf/cpp_features.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/google/protobuf/descriptor.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/google/protobuf/duration.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/google/protobuf/empty.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/google/protobuf/field_mask.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/google/protobuf/java_features.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/google/protobuf/source_context.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/google/protobuf/struct.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/google/protobuf/timestamp.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/google/protobuf/type.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/google/protobuf/wrappers.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/idl/api.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/idl/echo.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/idl/frontend/home.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/idl/frontend/home.thrift" beforeDir="false" afterPath="$PROJECT_DIR$/idl/frontend/home.thrift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/build-errors.log" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go File" />
+      </list>
+    </option>
+  </component>
+  <component name="GOROOT" url="file://$USER_HOME$/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.23.2.windows-amd64" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2omdDJ7I1PcfUcLUxBLcAvuJ488" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultGoTemplateProperty&quot;: &quot;Go File&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Go_demo/gomall/app/frontend/static/css&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Go_demo\gomall\app\frontend\static\css" />
+      <recent name="D:\Go_demo\gomall\app\frontend\static\js" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Go_demo\gomall\idl" />
+      <recent name="D:\Go_demo\gomall\idl\frontend" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
+      <module name="gomall" />
+      <working_directory value="$PROJECT_DIR$" />
+      <go_parameters value="-i" />
+      <kind value="FILE" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="GoTestRunConfiguration" factoryName="Go Test">
+      <module name="gomall" />
+      <working_directory value="$PROJECT_DIR$" />
+      <go_parameters value="-i" />
+      <kind value="DIRECTORY" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-gosdk-33c477a475b1-b97fc8a1e17c-org.jetbrains.plugins.go.sharedIndexes.bundled-GO-241.14494.238" />
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-GO-241.14494.238" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VgoProject">
+    <settings-migrated>true</settings-migrated>
+  </component>
+</project>

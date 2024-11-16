@@ -2,9 +2,9 @@ package service
 
 import (
 	"context"
+	"gomall/app/frontend/hertz_gen/frontend/common"
 
 	"github.com/cloudwego/hertz/pkg/app"
-	home "gomall/app/frontend/hertz_gen/frontend/home"
 )
 
 type HomeService struct {
@@ -16,11 +16,7 @@ func NewHomeService(Context context.Context, RequestContext *app.RequestContext)
 	return &HomeService{RequestContext: RequestContext, Context: Context}
 }
 
-func (h *HomeService) Run(req *home.Empty) (map[string]any, error) {
-	//defer func() {
-	// hlog.CtxInfof(h.Context, "req = %+v", req)
-	// hlog.CtxInfof(h.Context, "resp = %+v", resp)
-	//}()
+func (h *HomeService) Run(req *common.Empty) (map[string]any, error) {
 	// todo edit your code
 	var resp = make(map[string]any) // 初始化 map
 	//定义商品

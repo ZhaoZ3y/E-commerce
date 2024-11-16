@@ -1,7 +1,7 @@
 namespace go frontend.home
 
-struct Empty {}
+include "common.thrift"
 
 service HomeService {
-    Empty Home(1: Empty e) (api.get="/home");
+    common.Empty Home(1: common.Empty e) (api.get="/");
 }
