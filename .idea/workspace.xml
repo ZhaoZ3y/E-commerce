@@ -5,81 +5,71 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dc590fba-7208-4bd8-bd36-46455538140a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/frontend/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/frontend/biz/service/login.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/frontend/biz/service/register.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/frontend/template/require.tmpl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/frontend/template/sign-in.tmpl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/frontend/template/sign-up.tmpl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/idl/frontend/auth_page.thrift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/idl/frontend/common.thrift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gomall.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gomall.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/frontend/biz/service/logout.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/frontend/infra/rpc/client.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/frontend/middleware/auth.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/frontend/middleware/middleware.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/frontend/template/about.tmpl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/frontend/utils/constant.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/frontend/utils/error.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/frontend/utils/function.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/user/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/user/biz/dal/init.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/user/biz/dal/mysql/init.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/user/biz/dal/redis/init.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/user/biz/model/user.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/user/biz/service/login.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/user/biz/service/login_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/user/biz/service/register.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/user/biz/service/register_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/user/build.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/user/conf/conf.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/user/conf/dev/conf.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/user/conf/online/conf.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/user/conf/test/conf.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/user/docker-compose.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/user/go.mod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/user/handler.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/user/kitex_info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/user/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/user/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/user/script/bootstrap.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/idl/user.thrift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rpc_gen/go.mod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rpc_gen/go.sum" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rpc_gen/kitex_gen/user/k-consts.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rpc_gen/kitex_gen/user/k-user.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rpc_gen/kitex_gen/user/user.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rpc_gen/kitex_gen/user/userservice/client.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rpc_gen/kitex_gen/user/userservice/invoker.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rpc_gen/kitex_gen/user/userservice/server.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rpc_gen/kitex_gen/user/userservice/userservice.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rpc_gen/rpc/user/user_client.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rpc_gen/rpc/user/user_default.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rpc_gen/rpc/user/user_init.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/frontend/biz/handler/frontend/home/home_service.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/biz/handler/frontend/home/home_service.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/frontend/biz/router/frontend/home/home.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/biz/router/frontend/home/home.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/frontend/biz/router/register.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/biz/router/register.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/frontend/biz/handler/frontend/auth_page/auth_service.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/biz/handler/frontend/auth_page/auth_service.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/frontend/biz/handler/frontend/auth_page/auth_service_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/biz/handler/frontend/auth_page/auth_service_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/frontend/biz/router/frontend/auth_page/auth_page.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/biz/router/frontend/auth_page/auth_page.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/frontend/biz/router/frontend/auth_page/middleware.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/biz/router/frontend/auth_page/middleware.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/frontend/biz/service/home.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/biz/service/home.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/frontend/biz/service/login.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/biz/service/login.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/frontend/biz/service/register.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/biz/service/register.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/frontend/biz/utils/resp.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/biz/utils/resp.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/frontend/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/frontend/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/frontend/hertz_gen/frontend/home/home.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/hertz_gen/frontend/home/home.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/frontend/conf/conf.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/conf/conf.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/frontend/conf/dev/conf.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/conf/dev/conf.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/frontend/conf/online/conf.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/conf/online/conf.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/frontend/conf/test/conf.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/conf/test/conf.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/frontend/hertz_gen/frontend/auth_page/auth_page.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/hertz_gen/frontend/auth_page/auth_page.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/frontend/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/frontend/template/header.tmpl" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/template/header.tmpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/frontend/template/home.tmpl" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/template/home.tmpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/demo_proto/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/demo_proto/biz/dal/init.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/demo_proto/biz/dal/mysql/init.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/demo_proto/biz/dal/redis/init.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/demo_proto/biz/service/echo.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/demo_proto/biz/service/echo_test.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/demo_proto/build.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/demo_proto/cmd/client/main.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/demo_proto/conf/conf.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/demo_proto/conf/dev/conf.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/demo_proto/conf/online/conf.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/demo_proto/conf/test/conf.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/demo_proto/docker-compose.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/demo_proto/go.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/demo_proto/go.sum" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/demo_proto/handler.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/demo_proto/kitex_gen/pbapi/echo.pb.fast.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/demo_proto/kitex_gen/pbapi/echo.pb.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/demo_proto/kitex_gen/pbapi/echo/client.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/demo_proto/kitex_gen/pbapi/echo/echo.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/demo_proto/kitex_gen/pbapi/echo/invoker.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/demo_proto/kitex_gen/pbapi/echo/server.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/demo_proto/kitex_info.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/demo_proto/main.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/demo_proto/readme.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/demo_proto/script/bootstrap.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/frontend/template/sign-in.tmpl" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/template/sign-in.tmpl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.work" beforeDir="false" afterPath="$PROJECT_DIR$/go.work" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.work.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.work.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/google/protobuf/any.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/google/protobuf/api.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/google/protobuf/compiler/plugin.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/google/protobuf/cpp_features.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/google/protobuf/descriptor.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/google/protobuf/duration.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/google/protobuf/empty.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/google/protobuf/field_mask.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/google/protobuf/java_features.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/google/protobuf/source_context.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/google/protobuf/struct.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/google/protobuf/timestamp.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/google/protobuf/type.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/google/protobuf/wrappers.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/idl/api.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/idl/echo.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/idl/frontend/home.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/idl/frontend/home.thrift" beforeDir="false" afterPath="$PROJECT_DIR$/idl/frontend/home.thrift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/build-errors.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/idl/frontend/auth_page.thrift" beforeDir="false" afterPath="$PROJECT_DIR$/idl/frontend/auth_page.thrift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,6 +87,10 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 2
@@ -108,19 +102,27 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;DefaultGoTemplateProperty&quot;: &quot;Go File&quot;,
+    &quot;Go Test.TestRegister_Run in gomall/app/user/biz/service.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
     &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Go_demo/gomall/app/frontend/static/css&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Redrock-git/magipoke-sport&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.Confirmation&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql_aurora_aws&quot;
+    ]
   }
 }</component>
   <component name="RecentsManager">
@@ -143,6 +145,18 @@
       <filePath value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
+    <configuration name="TestRegister_Run in gomall/app/user/biz/service" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="gomall" />
+      <working_directory value="$PROJECT_DIR$/app/user/biz/service" />
+      <root_directory value="$PROJECT_DIR$/app/user" />
+      <kind value="PACKAGE" />
+      <package value="gomall/app/user/biz/service" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestRegister_Run\E$" />
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="GoTestRunConfiguration" factoryName="Go Test">
       <module name="gomall" />
       <working_directory value="$PROJECT_DIR$" />
@@ -153,6 +167,11 @@
       <framework value="gotest" />
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go Test.TestRegister_Run in gomall/app/user/biz/service" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>

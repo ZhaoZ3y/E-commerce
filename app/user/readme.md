@@ -2,10 +2,9 @@
 
 ## introduce
 
-- Use the [Hertz](https://github.com/cloudwego/hertz/) framework
-- Integration of pprof, cors, recovery, access_log, gzip and other extensions of Hertz.
+- Use the [Kitex](https://github.com/cloudwego/kitex/) framework
 - Generating the base code for unit tests.
-- Provides basic profile functions.
+- Provides basic config functions
 - Provides the most basic MVC code hierarchy.
 
 ## Directory structure
@@ -14,12 +13,10 @@
 |  ----  | ----  |
 | conf  | Configuration files |
 | main.go  | Startup file |
-| hertz_gen  | Hertz generated model |
-| biz/handler  | Used for request processing, validation and return of response. |
+| handler.go  | Used for request processing return of response. |
+| kitex_gen  | kitex generated code |
 | biz/service  | The actual business logic. |
 | biz/dal  | Logic for operating the storage layer |
-| biz/route  | Routing and middleware registration |
-| biz/utils  | Wrapped some common methods |
 
 ## How to run
 
