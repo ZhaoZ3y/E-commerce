@@ -2,7 +2,10 @@ package service
 
 import (
 	"context"
+	"github.com/cloudwego/hertz/pkg/common/utils"
 	"gomall/app/frontend/hertz_gen/frontend/common"
+	"gomall/app/frontend/infra/rpc"
+	"gomall/rpc_gen/kitex_gen/product"
 
 	"github.com/cloudwego/hertz/pkg/app"
 )
@@ -18,30 +21,12 @@ func NewHomeService(Context context.Context, RequestContext *app.RequestContext)
 
 func (h *HomeService) Run(req *common.Empty) (map[string]any, error) {
 	// todo frontend svc api
-	var resp = make(map[string]any) // 初始化 map
-	//定义商品
-	item := []map[string]any{
-		//图片渲染过慢，暂时不加图片
-		{"Name": "RedRock Backend T-shirt", "Price": 25, "Picture": ""},
-		{"Name": "RedRock Frontend T-shirt", "Price": 25, "Picture": ""},
-		{"Name": "RedRock Design T-shirt", "Price": 25, "Picture": ""},
-		{"Name": "RedRock Mobile T-shirt", "Price": 25, "Picture": ""},
-		{"Name": "RedRock Product T-shirt", "Price": 25, "Picture": ""},
-		{"Name": "RedRock SRE T-shirt", "Price": 25, "Picture": ""},
-		{"Name": "RedRock Work Card White", "Price": 10, "Picture": ""},
-		{"Name": "RedRock Work Card Black", "Price": 10, "Picture": ""},
-		//{"Name": "RedRock Backend T-shirt", "Price": 25, "Picture": "../static/image/backend.jpg"},
-		//{"Name": "RedRock Frontend T-shirt", "Price": 25, "Picture": "../static/image/frontend.jpg"},
-		//{"Name": "RedRock Design T-shirt", "Price": 25, "Picture": "../static/image/design.jpg"},
-		//{"Name": "RedRock Mobile T-shirt", "Price": 25, "Picture": "../static/image/mobile.jpg"},
-		//{"Name": "RedRock Product T-shirt", "Price": 25, "Picture": "../static/image/product.jpg"},
-		//{"Name": "RedRock SRE T-shirt", "Price": 25, "Picture": "../static/image/SRE.jpg"},
-		//{"Name": "RedRock Work Card White", "Price": 10, "Picture": "../static/image/work_card_white.jpg"},
-		//{"Name": "RedRock Work Card Black", "Price": 10, "Picture": "../static/image/work_card_black.jpg"},
+	products, err := rpc.ProductClient.ListProduct(h.Context, &product.ListProductsReq{})
+	if err != nil {
+		return nil, err
 	}
-	//返回数据
-	resp["Title"] = "Hot Sales"
-	resp["Items"] = item
-
-	return resp, nil
+	return utils.H{
+		"title": "Hot Sales",
+		"items": products.Products,
+	}, nil
 }

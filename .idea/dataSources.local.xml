@@ -13,7 +13,7 @@
       <schema-mapping>
         <introspection-scope>
           <node kind="schema">
-            <name qname="@" />
+            <name qname="product" />
             <name qname="user" />
           </node>
         </introspection-scope>
