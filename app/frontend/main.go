@@ -49,11 +49,10 @@ func main() {
 	h.Static("/static", "./")
 
 	h.GET("/sign-in", func(c context.Context, ctx *app.RequestContext) {
-		data := utils.H{
+		ctx.HTML(consts.StatusOK, "sign-in", utils.H{
 			"Title": "Sign In",
 			"Next":  ctx.Query("next"),
-		}
-		ctx.HTML(consts.StatusOK, "sign-in", data)
+		})
 	})
 	h.GET("/sign-up", func(c context.Context, ctx *app.RequestContext) {
 		ctx.HTML(consts.StatusOK, "sign-up", utils.H{"Title": "Sign Up"})

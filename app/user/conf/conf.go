@@ -5,6 +5,7 @@ import (
 	"net" // 新增：用于获取本机 IP
 	"os"
 	"path/filepath"
+	"strings"
 	"sync"
 
 	"github.com/cloudwego/kitex/pkg/klog"
@@ -98,12 +99,12 @@ func initConf() {
 		panic(err)
 	}
 
-	// 新增：获取本机 IP 并更新到配置中
-	localIP := GetLocalIP() // 新增：调用获取本机 IP 的方法
-	if localIP != "" {      // 新增：判断 IP 是否有效
-		conf.Kitex.Address = localIP + ":8888" // 新增：更新配置中的 Address 字段
-	} else { // 新增：处理无法获取 IP 的情况
-		klog.Warn("Failed to get local IP, using default config") // 新增
+	// 新增：获取本机 IP 并更新到配置中（仅设置 IP，保留原有端口）
+	localIP := GetLocalIP() // 调用获取本机 IP 的方法
+	if localIP != "" {      // 判断 IP 是否有效
+		conf.Kitex.Address = localIP + ":" + conf.Kitex.Address[strings.LastIndex(conf.Kitex.Address, ":")+1:] // 替换地址中的 IP 部分
+	} else { // 处理无法获取 IP 的情况
+		klog.Warn("Failed to get local IP, using default config")
 	}
 
 	conf.Env = GetEnv()

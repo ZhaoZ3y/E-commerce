@@ -5,79 +5,40 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dc590fba-7208-4bd8-bd36-46455538140a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/frontend/biz/handler/frontend/category/category_service.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/frontend/biz/handler/frontend/category/category_service_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/frontend/biz/handler/frontend/product_page/product_service.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/frontend/biz/handler/frontend/product_page/product_service_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/frontend/biz/router/frontend/category/category_page.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/frontend/biz/router/frontend/category/middleware.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/frontend/biz/router/frontend/product_page/middleware.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/frontend/biz/router/frontend/product_page/product_page.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/frontend/biz/service/get_category.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/frontend/biz/service/get_product.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/frontend/biz/service/search_product.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/frontend/hertz_gen/frontend/category/category_page.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/frontend/hertz_gen/frontend/product_page/product_page.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/frontend/template/category.tmpl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/frontend/template/product.tmpl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/frontend/template/search.tmpl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/product/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/product/biz/dal/init.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/product/biz/dal/mysql/init.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/product/biz/dal/redis/init.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/product/biz/model/base.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/product/biz/model/category.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/product/biz/model/product.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/product/biz/service/get_product.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/product/biz/service/get_product_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/product/biz/service/list_product.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/product/biz/service/list_product_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/product/biz/service/search_product.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/product/biz/service/search_product_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/product/build.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/product/conf/conf.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/product/conf/dev/conf.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/product/conf/online/conf.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/product/conf/test/conf.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/product/docker-compose.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/product/go.mod" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/product/go.sum" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/product/handler.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/product/kitex_info.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/product/main.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/product/readme.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/product/script/bootstrap.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/idl/frontend/category_page.thrift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/idl/frontend/product_page.thrift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/idl/product.thrift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rpc_gen/kitex_gen/product/k-consts.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rpc_gen/kitex_gen/product/k-product.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rpc_gen/kitex_gen/product/product.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rpc_gen/kitex_gen/product/productcatalogservice/client.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rpc_gen/kitex_gen/product/productcatalogservice/invoker.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rpc_gen/kitex_gen/product/productcatalogservice/productcatalogservice.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rpc_gen/kitex_gen/product/productcatalogservice/server.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rpc_gen/rpc/product/product_client.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rpc_gen/rpc/product/product_default.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rpc_gen/rpc/product/product_init.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/cart/biz/model/cart.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/cart/infra/rpc/client.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/cart/utils/errors.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/frontend/template/cart-num.tmpl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/frontend/template/cart.tmpl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/idl/cart.thrift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/idl/frontend/cart_page.thrift" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/223e9651-9679-4b13-b0f6-45199a12555a.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/223e9651-9679-4b13-b0f6-45199a12555a.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/223e9651-9679-4b13-b0f6-45199a12555a.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/223e9651-9679-4b13-b0f6-45199a12555a/storage_v2/_src_/schema/product.78yN7Q.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/223e9651-9679-4b13-b0f6-45199a12555a/storage_v2/_src_/schema/user.y-s2AA.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/frontend/biz/handler/frontend/product_page/product_service.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/biz/handler/frontend/product_page/product_service.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/frontend/biz/router/register.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/biz/router/register.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/frontend/biz/service/home.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/biz/service/home.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/frontend/biz/utils/resp.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/biz/utils/resp.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/frontend/infra/rpc/client.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/infra/rpc/client.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/frontend/static/image/SRE.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/frontend/static/image/backend.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/static/image/backend.jpeg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/frontend/static/image/design.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/frontend/static/image/frontend.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/frontend/static/image/mobile.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/frontend/static/image/product.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/frontend/static/image/work_card_black.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/frontend/static/image/work_card_white.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/frontend/template/home.tmpl" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/template/home.tmpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/frontend/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/frontend/template/about.tmpl" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/template/about.tmpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/frontend/template/footer.tmpl" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/template/footer.tmpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/frontend/template/header.tmpl" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/template/header.tmpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/frontend/template/product.tmpl" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/template/product.tmpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/product/biz/dal/mysql/init.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/product/biz/dal/mysql/init.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/product/conf/conf.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/product/conf/conf.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/product/conf/dev/conf.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/product/conf/dev/conf.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/product/conf/online/conf.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/product/conf/online/conf.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/product/conf/test/conf.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/product/conf/test/conf.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/product/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/product/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/user/conf/conf.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/user/conf/conf.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/user/conf/dev/conf.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/user/conf/dev/conf.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/user/conf/online/conf.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/user/conf/online/conf.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/user/conf/test/conf.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/user/conf/test/conf.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.work" beforeDir="false" afterPath="$PROJECT_DIR$/go.work" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.work.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.work.sum" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,34 +69,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "DefaultGoTemplateProperty": "Go File",
-    "Go Test.TestRegister_Run in gomall/app/user/biz/service.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.go.formatter.settings.were.checked": "true",
-    "RunOnceActivity.go.migrated.go.modules.settings": "true",
-    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "go.import.settings.migrated": "true",
-    "go.sdk.automatically.set": "true",
-    "last_opened_file_path": "D:/Go_demo/gomall/app/product",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "project.propVCSSupport.Confirmation"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultGoTemplateProperty&quot;: &quot;Go File&quot;,
+    &quot;Go Test.TestRegister_Run in gomall/app/user/biz/service.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;ToolWindowTerminal.ShowToolbar&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Go_demo/gomall/app/cart&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;terminal&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql_aurora_aws"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql_aurora_aws&quot;,
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Go_demo\gomall\app\cart" />
       <recent name="D:\Go_demo\gomall\app\product" />
       <recent name="D:\Go_demo\gomall\app\frontend\static\css" />
       <recent name="D:\Go_demo\gomall\app\frontend\static\js" />
