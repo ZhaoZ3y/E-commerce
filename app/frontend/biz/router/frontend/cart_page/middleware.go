@@ -4,11 +4,14 @@ package cart_page
 
 import (
 	"github.com/cloudwego/hertz/pkg/app"
+	"gomall/app/frontend/middleware"
 )
 
 func rootMw() []app.HandlerFunc {
 	// your code...
-	return nil
+	return []app.HandlerFunc{
+		middleware.Auth(),
+	}
 }
 
 func _getcartMw() []app.HandlerFunc {

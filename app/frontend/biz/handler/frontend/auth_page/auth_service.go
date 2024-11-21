@@ -2,7 +2,6 @@ package auth_page
 
 import (
 	"context"
-
 	"github.com/cloudwego/hertz/pkg/app"
 	"github.com/cloudwego/hertz/pkg/protocol/consts"
 	"gomall/app/frontend/biz/service"

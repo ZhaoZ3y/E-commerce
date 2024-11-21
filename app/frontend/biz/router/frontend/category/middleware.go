@@ -4,11 +4,12 @@ package category
 
 import (
 	"github.com/cloudwego/hertz/pkg/app"
+	"gomall/app/frontend/middleware"
 )
 
 func rootMw() []app.HandlerFunc {
 	// your code...
-	return nil
+	return []app.HandlerFunc{middleware.Auth()}
 }
 
 func _categoryMw() []app.HandlerFunc {
