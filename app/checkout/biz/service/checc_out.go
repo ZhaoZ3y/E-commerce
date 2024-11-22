@@ -2,14 +2,16 @@ package service
 
 import (
 	"context"
+	"fmt"
 	"github.com/cloudwego/kitex/pkg/kerrors"
 	"github.com/cloudwego/kitex/pkg/klog"
-	"github.com/google/uuid"
 	"gomall/app/checkout/infra/rpc"
 	"gomall/rpc_gen/kitex_gen/cart"
 	check_out "gomall/rpc_gen/kitex_gen/check_out"
+	"gomall/rpc_gen/kitex_gen/order"
 	"gomall/rpc_gen/kitex_gen/payment"
 	"gomall/rpc_gen/kitex_gen/product"
+	"strconv"
 )
 
 type CheccOutService struct {
@@ -30,51 +32,86 @@ func (s *CheccOutService) Run(req *check_out.CheckOutReq) (resp *check_out.Check
 		return nil, kerrors.NewBizStatusError(5004001, "cart is empty")
 	}
 
-	var total float32
+	var (
+		total float32
+		oi    []*order.OrderItem
+	)
 	for _, cartItem := range cartResult.Cart.Items {
-		productResp, ResultErr := rpc.ProductClient.GetProduct(s.ctx, &product.GetProductReq{Id: cartItem.ProductId})
-		if ResultErr != nil {
-			return nil, ResultErr
+		productResp, resultErr := rpc.ProductClient.GetProduct(s.ctx, &product.GetProductReq{Id: cartItem.ProductId})
+		if resultErr != nil {
+			klog.Error(resultErr)
+			err = resultErr
+			return
 		}
 		if productResp.Product == nil {
 			continue
 		}
-
-		p := productResp.Product.Price
-		cost := float32(p) * float32(cartItem.Quantity)
+		p := productResp.Product
+		cost := float32(p.Price) * float32(cartItem.Quantity)
 		total += cost
+		oi = append(oi, &order.OrderItem{
+			Item: &cart.CartItem{ProductId: cartItem.ProductId, Quantity: cartItem.Quantity},
+			Cost: float64(cost),
+		})
 	}
 
-	var OrderId string
-	u, _ := uuid.NewRandom()
-	OrderId = u.String()
+	orderReq := &order.PlaceOrderReq{
+		UserId:       req.UserId,
+		UserCurrency: "USD",
+		Items:        oi,
+		Email:        req.Email,
+	}
+	if req.Address != nil {
+		addr := req.Address
+		zipCodeInt, _ := strconv.Atoi(addr.ZipCode)
+		orderReq.Address = &order.Adress{
+			StreetAddress: addr.StreetAddress,
+			City:          addr.City,
+			Country:       addr.Country,
+			State:         addr.State,
+			ZipCope:       int32(zipCodeInt),
+		}
+	}
+
+	orderResult, err := rpc.OrderClient.PlaceOrder(s.ctx, orderReq)
+	if err != nil {
+		err = fmt.Errorf("PlaceOrder.err:%v", err)
+		return
+	}
+	klog.Info("orderResult", orderResult)
+	// empty cart
+	emptyResult, err := rpc.CartClient.EmptyCart(s.ctx, &cart.EmptyCartReq{UserId: req.UserId})
+	if err != nil {
+		err = fmt.Errorf("EmptyCart.err:%v", err)
+		return
+	}
+	klog.Info(emptyResult)
+
+	var orderId string
+	if orderResult != nil && orderResult.Order != nil {
+		orderId = orderResult.Order.OrderId
+	}
 
 	payReq := &payment.ChargeReq{
 		UserId:  req.UserId,
-		OrderId: OrderId,
+		OrderId: orderId,
 		Amount:  float64(total),
 		CreditCard: &payment.CreditCardInfo{
 			CreditCardNumber:          req.CreditCard.CreditCardNumber,
-			CreditCardCvv:             req.CreditCard.CreditCardCvv,
-			CreditCardExpirationMonth: req.CreditCard.CreditCardExpirationMonth,
 			CreditCardExpirationYear:  req.CreditCard.CreditCardExpirationYear,
+			CreditCardExpirationMonth: req.CreditCard.CreditCardExpirationMonth,
+			CreditCardCvv:             req.CreditCard.CreditCardCvv,
 		},
 	}
-
-	_, err = rpc.CartClient.EmptyCart(s.ctx, &cart.EmptyCartReq{UserId: req.UserId})
-	if err != nil {
-		klog.Error(err.Error())
-	}
-
 	paymentResult, err := rpc.PaymentClient.Charge(s.ctx, payReq)
 	if err != nil {
-		return nil, err
+		err = fmt.Errorf("Charge.err:%v", err)
+		return
 	}
-
 	klog.Info(paymentResult)
 
 	return &check_out.CheckOutResp{
-		OrderId:       OrderId,
+		OrderId:       orderId,
 		TransactionId: paymentResult.TransactionId,
 	}, nil
 }

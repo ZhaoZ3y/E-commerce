@@ -37,17 +37,16 @@ func kitexInit() (opts []server.Option) {
 	if err != nil {
 		panic(err)
 	}
-	opts = append(opts, server.WithServiceAddr(addr))
-
 	r, err := consul.NewConsulRegister(conf.GetConf().Registry.RegistryAddress[0])
 	if err != nil {
 		klog.Fatal(err)
 	}
+	opts = append(opts, server.WithServiceAddr(addr), server.WithRegistry(r))
 
 	// service info
 	opts = append(opts, server.WithServerBasicInfo(&rpcinfo.EndpointBasicInfo{
 		ServiceName: conf.GetConf().Kitex.Service,
-	}), server.WithRegistry(r))
+	}))
 	// thrift meta handler
 	opts = append(opts, server.WithMetaHandler(transmeta.ServerTTHeaderHandler))
 

@@ -19,7 +19,6 @@ func (Payment) TableName() string {
 	return "payment"
 }
 
-func CreatePayment(ctx context.Context, db *gorm.DB, payment *Payment) error {
+func CreatePaymentLog(db *gorm.DB, ctx context.Context, payment *Payment) error {
 	return db.WithContext(ctx).Model(&Payment{}).Create(payment).Error
-
 }

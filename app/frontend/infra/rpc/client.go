@@ -7,6 +7,7 @@ import (
 	frontendUtils "gomall/app/frontend/utils"
 	"gomall/rpc_gen/kitex_gen/cart/cartservice"
 	"gomall/rpc_gen/kitex_gen/check_out/checkoutservice"
+	"gomall/rpc_gen/kitex_gen/order/orderservice"
 	"gomall/rpc_gen/kitex_gen/product/productcatalogservice"
 	"gomall/rpc_gen/kitex_gen/user/userservice"
 	"sync"
@@ -17,6 +18,7 @@ var (
 	ProductClient  productcatalogservice.Client
 	CartClient     cartservice.Client
 	CheckOutClient checkoutservice.Client
+	OrderClient    orderservice.Client
 	once           sync.Once
 )
 
@@ -26,6 +28,7 @@ func Init() {
 		initProductClient()
 		initCartClient()
 		initCheckOutClient()
+		initOrderClient()
 	})
 }
 
@@ -60,5 +63,14 @@ func initCheckOutClient() {
 	frontendUtils.MustHandleError(err)
 	opts = append(opts, client.WithResolver(r))
 	CheckOutClient, err = checkoutservice.NewClient("checkout", opts...)
+	frontendUtils.MustHandleError(err)
+}
+
+func initOrderClient() {
+	var opts []client.Option
+	r, err := consul.NewConsulResolver(conf.GetConf().Hertz.RegistryAddr)
+	frontendUtils.MustHandleError(err)
+	opts = append(opts, client.WithResolver(r))
+	OrderClient, err = orderservice.NewClient("order", opts...)
 	frontendUtils.MustHandleError(err)
 }

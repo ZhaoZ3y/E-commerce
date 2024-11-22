@@ -2,7 +2,7 @@ export MOD = gomall
 
 .PHONY: gen-frontend
 gen-frontend:
-	@cd app/frontend && cwgo server --type HTTP --idl ../../idl/frontend/checkout_page.thrift --service frontend --module ${MOD}/app/frontend -I ../../idl/
+	@cd app/frontend && cwgo server --type HTTP --idl ../../idl/frontend/order_page.thrift --service frontend --module ${MOD}/app/frontend -I ../../idl/
 .PHONY: gen-user
 gen-user:
 	@cd rpc_gen && cwgo client --type RPC --service user --module ${MOD}/rpc_gen --I ../idl --idl ../idl/user.thrift
@@ -23,3 +23,7 @@ gen-payment:
 gen-checkout:
 	@cd rpc_gen && cwgo client --type RPC --service checkout --module ${MOD}/rpc_gen --I ../idl --idl ../idl/checkout.thrift
 	@cd app/checkout && cwgo server --type RPC --service checkout --module ${MOD}/app/checkout --pass "-use gomall/rpc_gen/kitex_gen" -I ../../idl --idl ../../idl/checkout.thrift && rmdir /s /q kitex_gen
+.PHONY: gen-order
+gen-order:
+	@cd rpc_gen && cwgo client --type RPC --service order --module ${MOD}/rpc_gen --I ../idl --idl ../idl/order.thrift
+	@cd app/order && cwgo server --type RPC --service order --module ${MOD}/app/order --pass "-use gomall/rpc_gen/kitex_gen" -I ../../idl --idl ../../idl/order.thrift && rmdir /s /q kitex_gen

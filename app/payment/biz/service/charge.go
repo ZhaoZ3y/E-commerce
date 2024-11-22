@@ -31,24 +31,22 @@ func (s *ChargeService) Run(req *payment.ChargeReq) (resp *payment.ChargeResp, e
 
 	err = card.Validate(true)
 	if err != nil {
-		return nil, kerrors.NewBizStatusError(4004001, err.Error())
+		return nil, kerrors.NewBizStatusError(400, err.Error())
 	}
 
-	transactionId, err := uuid.NewRandom()
+	translationId, err := uuid.NewRandom()
 	if err != nil {
-		return nil, kerrors.NewBizStatusError(4005001, err.Error())
+		return nil, err
 	}
-
-	err = model.CreatePayment(s.ctx, mysql.DB, &model.Payment{
+	err = model.CreatePaymentLog(mysql.DB, s.ctx, &model.Payment{
 		UserId:        uint32(req.UserId),
 		OrderId:       req.OrderId,
-		TransactionId: transactionId.String(),
+		TransactionId: translationId.String(),
 		Amount:        float32(req.Amount),
 		PayAt:         time.Now(),
 	})
 	if err != nil {
-		return nil, kerrors.NewBizStatusError(4005002, err.Error())
+		return nil, err
 	}
-
-	return &payment.ChargeResp{TransactionId: transactionId.String()}, nil
+	return &payment.ChargeResp{TransactionId: translationId.String()}, nil
 }
