@@ -9,4 +9,5 @@ use (
 	app/payment
 	app/checkout
 	app/order
+	app/email
 )

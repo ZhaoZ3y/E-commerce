@@ -5,9 +5,13 @@ import (
 	"fmt"
 	"github.com/cloudwego/kitex/pkg/kerrors"
 	"github.com/cloudwego/kitex/pkg/klog"
+	"github.com/nats-io/nats.go"
+	thrifter "github.com/thrift-iterator/go"
+	"gomall/app/checkout/infra/mq"
 	"gomall/app/checkout/infra/rpc"
 	"gomall/rpc_gen/kitex_gen/cart"
 	check_out "gomall/rpc_gen/kitex_gen/check_out"
+	"gomall/rpc_gen/kitex_gen/email"
 	"gomall/rpc_gen/kitex_gen/order"
 	"gomall/rpc_gen/kitex_gen/payment"
 	"gomall/rpc_gen/kitex_gen/product"
@@ -108,6 +112,20 @@ func (s *CheccOutService) Run(req *check_out.CheckOutReq) (resp *check_out.Check
 		err = fmt.Errorf("Charge.err:%v", err)
 		return
 	}
+
+	data, _ := thrifter.Marshal(&email.EmailReq{
+		From:        "from@example.com",
+		To:          req.Email,
+		ContentType: "text/plain",
+		Subject:     "Order Confirmation",
+		Content:     "Dear " + req.Email + ",\n\nThank you for your order. Your order number is " + orderId + ".\n\n",
+	})
+
+	msg := &nats.Msg{
+		Subject: "email",
+		Data:    data,
+	}
+	_ = mq.Nc.PublishMsg(msg)
 	klog.Info(paymentResult)
 
 	return &check_out.CheckOutResp{

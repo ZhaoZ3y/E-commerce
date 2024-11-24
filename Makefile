@@ -27,3 +27,7 @@ gen-checkout:
 gen-order:
 	@cd rpc_gen && cwgo client --type RPC --service order --module ${MOD}/rpc_gen --I ../idl --idl ../idl/order.thrift
 	@cd app/order && cwgo server --type RPC --service order --module ${MOD}/app/order --pass "-use gomall/rpc_gen/kitex_gen" -I ../../idl --idl ../../idl/order.thrift && rmdir /s /q kitex_gen
+.PHONY: gen-email
+gen-email:
+	@cd rpc_gen && cwgo client --type RPC --service email --module ${MOD}/rpc_gen --I ../idl --idl ../idl/email.thrift
+	@cd app/email && cwgo server --type RPC --service email --module ${MOD}/app/email --pass "-use gomall/rpc_gen/kitex_gen" -I ../../idl --idl ../../idl/email.thrift && rmdir /s /q kitex_gen

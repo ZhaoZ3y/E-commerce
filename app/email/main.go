@@ -1,10 +1,8 @@
 package main
 
 import (
-	"github.com/joho/godotenv"
-	consul "github.com/kitex-contrib/registry-consul"
-	"gomall/app/checkout/infra/mq"
-	"gomall/app/checkout/infra/rpc"
+	"gomall/app/email/biz/consumer"
+	"gomall/app/email/infra/mq"
 	"net"
 	"time"
 
@@ -14,18 +12,17 @@ import (
 	"github.com/cloudwego/kitex/server"
 	kitexlogrus "github.com/kitex-contrib/obs-opentelemetry/logging/logrus"
 	"go.uber.org/zap/zapcore"
-	"gomall/app/checkout/conf"
-	"gomall/rpc_gen/kitex_gen/check_out/checkoutservice"
+	"gomall/app/email/conf"
+	"gomall/rpc_gen/kitex_gen/email/emailservice"
 	"gopkg.in/natefinch/lumberjack.v2"
 )
 
 func main() {
-	_ = godotenv.Load()
-	rpc.InitClient()
 	mq.Init()
+	consumer.Init()
 	opts := kitexInit()
 
-	svr := checkoutservice.NewServer(new(CheckOutServiceImpl), opts...)
+	svr := emailservice.NewServer(new(EmailServiceImpl), opts...)
 
 	err := svr.Run()
 	if err != nil {
@@ -39,11 +36,7 @@ func kitexInit() (opts []server.Option) {
 	if err != nil {
 		panic(err)
 	}
-	r, err := consul.NewConsulRegister(conf.GetConf().Registry.RegistryAddress[0])
-	if err != nil {
-		klog.Fatal(err)
-	}
-	opts = append(opts, server.WithServiceAddr(addr), server.WithRegistry(r))
+	opts = append(opts, server.WithServiceAddr(addr))
 
 	// service info
 	opts = append(opts, server.WithServerBasicInfo(&rpcinfo.EndpointBasicInfo{
