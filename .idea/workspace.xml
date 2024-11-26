@@ -5,24 +5,61 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dc590fba-7208-4bd8-bd36-46455538140a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/checkout/infra/mq/nats.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/email/biz/consumer/consumer.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/email/biz/consumer/email/email.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/email/infra/mq/nats.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/email/infra/notify/email.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/go.mod" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/idl/api.proto" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/idl/email.thrift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/idl/frontend/common.proto" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/idl/frontend/home.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3e37ff0c-04ae-4571-9663-968bc496597c.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/3e37ff0c-04ae-4571-9663-968bc496597c.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/clientsuite/clientsuite.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/mtl/metrics.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/serversuite/serversuite.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/deploy/config/prometheus.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/deploy/grafana.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/checkout/biz/service/checc_out.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/checkout/biz/service/checc_out.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/cart/conf/conf.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/cart/conf/conf.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/cart/conf/dev/conf.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/cart/conf/dev/conf.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/cart/conf/online/conf.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/cart/conf/online/conf.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/cart/conf/test/conf.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/cart/conf/test/conf.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/cart/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/app/cart/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/cart/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/app/cart/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/cart/infra/rpc/client.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/cart/infra/rpc/client.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/cart/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/cart/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/checkout/conf/conf.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/checkout/conf/conf.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/checkout/conf/dev/conf.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/checkout/conf/dev/conf.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/checkout/conf/online/conf.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/checkout/conf/online/conf.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/checkout/conf/test/conf.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/checkout/conf/test/conf.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/checkout/infra/rpc/client.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/checkout/infra/rpc/client.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/checkout/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/checkout/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/email/conf/conf.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/email/conf/conf.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/email/conf/dev/conf.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/email/conf/dev/conf.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/email/conf/online/conf.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/email/conf/online/conf.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/email/conf/test/conf.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/email/conf/test/conf.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/email/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/email/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/frontend/conf/conf.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/conf/conf.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/frontend/conf/test/conf.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/conf/test/conf.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/frontend/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/frontend/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/frontend/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/frontend/utils/constant.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/utils/constant.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/order/conf/conf.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/order/conf/conf.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/order/conf/dev/conf.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/order/conf/dev/conf.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/order/conf/online/conf.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/order/conf/online/conf.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/order/conf/test/conf.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/order/conf/test/conf.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/order/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/order/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/payment/conf/conf.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/payment/conf/conf.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/payment/conf/dev/conf.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/payment/conf/dev/conf.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/payment/conf/online/conf.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/payment/conf/online/conf.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/payment/conf/test/conf.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/payment/conf/test/conf.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/payment/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/payment/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/product/conf/conf.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/product/conf/conf.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/product/conf/dev/conf.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/product/conf/dev/conf.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/product/conf/online/conf.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/product/conf/online/conf.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/product/conf/test/conf.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/product/conf/test/conf.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/product/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/product/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/user/conf/conf.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/user/conf/conf.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/user/conf/dev/conf.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/user/conf/dev/conf.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/user/conf/online/conf.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/user/conf/online/conf.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/user/conf/test/conf.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/user/conf/test/conf.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/user/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/user/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/common/go.mod" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.work" beforeDir="false" afterPath="$PROJECT_DIR$/go.work" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.work.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.work.sum" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +70,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Go File" />
+        <option value="tsconfig.json" />
       </list>
     </option>
   </component>
@@ -53,34 +91,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "DefaultGoTemplateProperty": "Go File",
-    "Go Test.TestRegister_Run in gomall/app/user/biz/service.executor": "Run",
-    "Makefile Target.gen-email.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.go.formatter.settings.were.checked": "true",
-    "RunOnceActivity.go.migrated.go.modules.settings": "true",
-    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
-    "ToolWindowTerminal.ShowToolbar": "false",
-    "git-widget-placeholder": "master",
-    "go.import.settings.migrated": "true",
-    "go.sdk.automatically.set": "true",
-    "last_opened_file_path": "D:/Go_demo/gomall/app/checkout/infra",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "google.protobuf.language"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultGoTemplateProperty&quot;: &quot;Go File&quot;,
+    &quot;Go Test.TestRegister_Run in gomall/app/user/biz/service.executor&quot;: &quot;Run&quot;,
+    &quot;Makefile Target.gen-email.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
+    &quot;ToolWindowTerminal.ShowToolbar&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Go_demo/gomall/app/checkout/infra&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;google.protobuf.language&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql_aurora_aws",
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql_aurora_aws&quot;,
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Go_demo\gomall\app\checkout\infra" />
@@ -90,11 +128,11 @@
       <recent name="D:\Go_demo\gomall\app\product" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Go_demo\gomall\deploy\config" />
       <recent name="D:\Go_demo\gomall\idl\frontend" />
       <recent name="D:\Go_demo\gomall\idl" />
       <recent name="D:\Go_demo\gomall\app\email\biz\consumer" />
       <recent name="D:\Go_demo\gomall\app\email\infra" />
-      <recent name="D:\Go_demo\gomall\app\payment\biz" />
     </key>
   </component>
   <component name="RunManager" selected="Makefile Target.gen-email">

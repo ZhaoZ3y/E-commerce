@@ -2,8 +2,9 @@ package main
 
 import (
 	"github.com/joho/godotenv"
-	consul "github.com/kitex-contrib/registry-consul"
 	"gomall/app/user/biz/dal"
+	"gomall/common/mtl"
+	"gomall/common/serversuite"
 	"net"
 	"time"
 
@@ -18,8 +19,14 @@ import (
 	"gopkg.in/natefinch/lumberjack.v2"
 )
 
+var (
+	ServiceName     = conf.GetConf().Kitex.Service
+	RegistryAddress = conf.GetConf().Registry.RegistryAddress[0]
+)
+
 func main() {
 	err := godotenv.Load()
+	mtl.Init(ServiceName, conf.GetConf().Kitex.MetricsPort, RegistryAddress)
 	if err != nil {
 		klog.Error(err.Error())
 	}
@@ -40,7 +47,10 @@ func kitexInit() (opts []server.Option) {
 	if err != nil {
 		panic(err)
 	}
-	opts = append(opts, server.WithServiceAddr(addr))
+	opts = append(opts, server.WithServiceAddr(addr), server.WithSuite(serversuite.CommonServerSuite{
+		CurrentServiceName: ServiceName,
+		RegistryAddr:       RegistryAddress,
+	}))
 
 	// service info
 	opts = append(opts, server.WithServerBasicInfo(&rpcinfo.EndpointBasicInfo{
@@ -48,13 +58,6 @@ func kitexInit() (opts []server.Option) {
 	}))
 	// thrift meta handler
 	opts = append(opts, server.WithMetaHandler(transmeta.ServerTTHeaderHandler))
-
-	//register consul
-	r, err := consul.NewConsulRegister(conf.GetConf().Registry.RegistryAddress[0])
-	if err != nil {
-		panic(err)
-	}
-	opts = append(opts, server.WithRegistry(r))
 
 	// klog
 	logger := kitexlogrus.NewLogger()

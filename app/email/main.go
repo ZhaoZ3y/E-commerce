@@ -3,6 +3,8 @@ package main
 import (
 	"gomall/app/email/biz/consumer"
 	"gomall/app/email/infra/mq"
+	"gomall/common/mtl"
+	"gomall/common/serversuite"
 	"net"
 	"time"
 
@@ -17,9 +19,15 @@ import (
 	"gopkg.in/natefinch/lumberjack.v2"
 )
 
+var (
+	ServiceName     = conf.GetConf().Kitex.Service
+	RegistryAddress = conf.GetConf().Registry.RegistryAddress[0]
+)
+
 func main() {
 	mq.Init()
 	consumer.Init()
+	mtl.Init(ServiceName, conf.GetConf().Kitex.MetricsPort, RegistryAddress)
 	opts := kitexInit()
 
 	svr := emailservice.NewServer(new(EmailServiceImpl), opts...)
@@ -36,7 +44,10 @@ func kitexInit() (opts []server.Option) {
 	if err != nil {
 		panic(err)
 	}
-	opts = append(opts, server.WithServiceAddr(addr))
+	opts = append(opts, server.WithServiceAddr(addr), server.WithSuite(serversuite.CommonServerSuite{
+		CurrentServiceName: ServiceName,
+		RegistryAddr:       RegistryAddress,
+	}))
 
 	// service info
 	opts = append(opts, server.WithServerBasicInfo(&rpcinfo.EndpointBasicInfo{

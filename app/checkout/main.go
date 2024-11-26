@@ -2,9 +2,10 @@ package main
 
 import (
 	"github.com/joho/godotenv"
-	consul "github.com/kitex-contrib/registry-consul"
 	"gomall/app/checkout/infra/mq"
 	"gomall/app/checkout/infra/rpc"
+	"gomall/common/mtl"
+	"gomall/common/serversuite"
 	"net"
 	"time"
 
@@ -19,8 +20,14 @@ import (
 	"gopkg.in/natefinch/lumberjack.v2"
 )
 
+var (
+	ServiceName  = conf.GetConf().Kitex.Service
+	RegistryAddr = conf.GetConf().Registry.RegistryAddress[0]
+)
+
 func main() {
 	_ = godotenv.Load()
+	mtl.Init(ServiceName, conf.GetConf().Kitex.MetricsPort, RegistryAddr)
 	rpc.InitClient()
 	mq.Init()
 	opts := kitexInit()
@@ -39,11 +46,10 @@ func kitexInit() (opts []server.Option) {
 	if err != nil {
 		panic(err)
 	}
-	r, err := consul.NewConsulRegister(conf.GetConf().Registry.RegistryAddress[0])
-	if err != nil {
-		klog.Fatal(err)
-	}
-	opts = append(opts, server.WithServiceAddr(addr), server.WithRegistry(r))
+	opts = append(opts, server.WithServiceAddr(addr), server.WithSuite(serversuite.CommonServerSuite{
+		CurrentServiceName: ServiceName,
+		RegistryAddr:       RegistryAddr,
+	}))
 
 	// service info
 	opts = append(opts, server.WithServerBasicInfo(&rpcinfo.EndpointBasicInfo{

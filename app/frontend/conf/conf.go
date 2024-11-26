@@ -1,15 +1,16 @@
 package conf
 
 import (
-	"io/ioutil"
-	"os"
-	"path/filepath"
-	"sync"
-
 	"github.com/cloudwego/hertz/pkg/common/hlog"
 	"github.com/kr/pretty"
 	"gopkg.in/validator.v2"
 	"gopkg.in/yaml.v2"
+	"io/ioutil"
+	"net"
+	"os"
+	"path/filepath"
+	"strings"
+	"sync"
 )
 
 var (
@@ -18,8 +19,7 @@ var (
 )
 
 type Config struct {
-	Env string
-
+	Env   string
 	Hertz Hertz `yaml:"hertz"`
 	MySQL MySQL `yaml:"mysql"`
 	Redis Redis `yaml:"redis"`
@@ -48,12 +48,31 @@ type Hertz struct {
 	LogMaxBackups   int    `yaml:"log_max_backups"`
 	LogMaxAge       int    `yaml:"log_max_age"`
 	RegistryAddr    string `yaml:"registry_addr"`
+	MetricsPort     string `yaml:"metrics_port"`
 }
 
 // GetConf gets configuration instance
 func GetConf() *Config {
 	once.Do(initConf)
 	return conf
+}
+
+// GetLocalIP 获取本地有效 IP 地址
+func GetLocalIP() string {
+	addrs, err := net.InterfaceAddrs()
+	if err != nil {
+		hlog.Error("Error getting local IP: %v", err)
+		return ""
+	}
+
+	for _, addr := range addrs {
+		if ip, ok := addr.(*net.IPNet); ok && !ip.IP.IsLoopback() && ip.IP.To4() != nil {
+			if ip.IP.IsPrivate() {
+				return ip.IP.String()
+			}
+		}
+	}
+	return ""
 }
 
 func initConf() {
@@ -75,8 +94,18 @@ func initConf() {
 		panic(err)
 	}
 
-	conf.Env = GetEnv()
+	// 获取本地 IP 地址并替换配置中对应的字段
+	localIP := GetLocalIP()
+	if localIP != "" {
+		// 替换 Hertz.Address 中的 IP 部分
+		conf.Hertz.Address = localIP + ":" + conf.Hertz.Address[strings.LastIndex(conf.Hertz.Address, ":")+1:]
+		// 替换 MetricsPort 中的 IP 部分
+		conf.Hertz.MetricsPort = localIP + ":" + conf.Hertz.MetricsPort[strings.LastIndex(conf.Hertz.MetricsPort, ":")+1:]
+	} else {
+		hlog.Warn("Failed to get local IP, using default config")
+	}
 
+	conf.Env = GetEnv()
 	pretty.Printf("%+v\n", conf)
 }
 

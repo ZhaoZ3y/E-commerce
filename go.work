@@ -1,13 +1,14 @@
 go 1.23.2
 
 use (
-	app/frontend
-	rpc_gen
-	app/user
-	app/product
+	./common
 	app/cart
-	app/payment
 	app/checkout
-	app/order
 	app/email
+	app/frontend
+	app/order
+	app/payment
+	app/product
+	app/user
+	rpc_gen
 )

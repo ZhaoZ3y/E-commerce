@@ -4,11 +4,13 @@ package main
 
 import (
 	"context"
+	prometheus "github.com/hertz-contrib/monitor-prometheus"
 	"github.com/hertz-contrib/sessions"
 	"github.com/hertz-contrib/sessions/redis"
 	"github.com/joho/godotenv"
 	"gomall/app/frontend/infra/rpc"
 	"gomall/app/frontend/middleware"
+	"gomall/common/mtl"
 	"os"
 	"time"
 
@@ -26,17 +28,31 @@ import (
 	"go.uber.org/zap/zapcore"
 	"gomall/app/frontend/biz/router"
 	"gomall/app/frontend/conf"
+	frontendUtils "gomall/app/frontend/utils"
 	"gopkg.in/natefinch/lumberjack.v2"
+)
+
+var (
+	ServiceName  = frontendUtils.ServiceName
+	MetricsPort  = conf.GetConf().Hertz.MetricsPort
+	RegistryAddr = conf.GetConf().Hertz.RegistryAddr
 )
 
 func main() {
 	_ = godotenv.Load()
 	// init dal
 	// dal.Init()
+	consul, registryInfo := mtl.Init(ServiceName, MetricsPort, RegistryAddr)
+	defer consul.Deregister(registryInfo)
 	rpc.Init()
 	address := conf.GetConf().Hertz.Address
-	h := server.New(server.WithHostPorts(address))
-
+	h := server.New(server.WithHostPorts(address),
+		server.WithTracer(prometheus.NewServerTracer(
+			"", "",
+			prometheus.WithDisableServer(true),
+			prometheus.WithRegistry(mtl.Registry),
+		)),
+	)
 	registerMiddleware(h)
 
 	// add a ping route to test

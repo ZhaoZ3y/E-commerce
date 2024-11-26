@@ -46,6 +46,7 @@ type Kitex struct {
 	LogMaxSize    int    `yaml:"log_max_size"`
 	LogMaxBackups int    `yaml:"log_max_backups"`
 	LogMaxAge     int    `yaml:"log_max_age"`
+	MetricsPort   string `yaml:"metrics_port"`
 }
 
 type Registry struct {
@@ -99,11 +100,14 @@ func initConf() {
 		panic(err)
 	}
 
-	// 新增：获取本机 IP 并更新到配置中（仅设置 IP，保留原有端口）
-	localIP := GetLocalIP() // 调用获取本机 IP 的方法
-	if localIP != "" {      // 判断 IP 是否有效
-		conf.Kitex.Address = localIP + ":" + conf.Kitex.Address[strings.LastIndex(conf.Kitex.Address, ":")+1:] // 替换地址中的 IP 部分
-	} else { // 处理无法获取 IP 的情况
+	// 获取本机 IP 并更新到配置中（仅设置 IP，保留原有端口）
+	localIP := GetLocalIP()
+	if localIP != "" {
+		// 替换 Kitex.Address 中的 IP 部分
+		conf.Kitex.Address = localIP + ":" + conf.Kitex.Address[strings.LastIndex(conf.Kitex.Address, ":")+1:]
+		// 替换 MetricsPort 中的 IP 部分
+		conf.Kitex.MetricsPort = localIP + ":" + conf.Kitex.MetricsPort[strings.LastIndex(conf.Kitex.MetricsPort, ":")+1:]
+	} else {
 		klog.Warn("Failed to get local IP, using default config")
 	}
 
