@@ -7,6 +7,8 @@ import (
 	"github.com/cloudwego/kitex/pkg/klog"
 	"github.com/nats-io/nats.go"
 	thrifter "github.com/thrift-iterator/go"
+	"go.opentelemetry.io/otel"
+	"go.opentelemetry.io/otel/propagation"
 	"gomall/app/checkout/infra/mq"
 	"gomall/app/checkout/infra/rpc"
 	"gomall/rpc_gen/kitex_gen/cart"
@@ -124,7 +126,10 @@ func (s *CheccOutService) Run(req *check_out.CheckOutReq) (resp *check_out.Check
 	msg := &nats.Msg{
 		Subject: "email",
 		Data:    data,
+		Header:  make(nats.Header),
 	}
+	otel.GetTextMapPropagator().Inject(s.ctx, propagation.HeaderCarrier(msg.Header))
+
 	_ = mq.Nc.PublishMsg(msg)
 	klog.Info(paymentResult)
 

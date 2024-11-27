@@ -1,76 +1,102 @@
 package rpc
 
 import (
+	"context"
 	"github.com/cloudwego/kitex/client"
-	consul "github.com/kitex-contrib/registry-consul"
+	"github.com/cloudwego/kitex/pkg/circuitbreak"
+	"github.com/cloudwego/kitex/pkg/fallback"
+	"github.com/cloudwego/kitex/pkg/rpcinfo"
+	prometheus "github.com/kitex-contrib/monitor-prometheus"
 	"gomall/app/frontend/conf"
 	frontendUtils "gomall/app/frontend/utils"
+	"gomall/common/clientsuite"
+	"gomall/common/mtl"
 	"gomall/rpc_gen/kitex_gen/cart/cartservice"
 	"gomall/rpc_gen/kitex_gen/check_out/checkoutservice"
 	"gomall/rpc_gen/kitex_gen/order/orderservice"
+	"gomall/rpc_gen/kitex_gen/product"
 	"gomall/rpc_gen/kitex_gen/product/productcatalogservice"
 	"gomall/rpc_gen/kitex_gen/user/userservice"
 	"sync"
 )
 
 var (
-	UserClient     userservice.Client
 	ProductClient  productcatalogservice.Client
+	UserClient     userservice.Client
 	CartClient     cartservice.Client
-	CheckOutClient checkoutservice.Client
+	CheckoutClient checkoutservice.Client
 	OrderClient    orderservice.Client
 	once           sync.Once
+	err            error
+	registryAddr   string
+	commonSuite    client.Option
 )
 
 func Init() {
 	once.Do(func() {
-		initUserClient()
+		registryAddr = conf.GetConf().Hertz.RegistryAddr
+		commonSuite = client.WithSuite(clientsuite.CommonClientSuite{
+			RegistryAddr:       registryAddr,
+			CurrentServiceName: frontendUtils.ServiceName,
+		})
 		initProductClient()
+		initUserClient()
 		initCartClient()
-		initCheckOutClient()
+		initCheckoutClient()
 		initOrderClient()
 	})
 }
 
-func initUserClient() {
-	r, err := consul.NewConsulResolver(conf.GetConf().Hertz.RegistryAddr)
-	frontendUtils.MustHandleError(err)
-	UserClient, err = userservice.NewClient("user", client.WithResolver(r))
-	frontendUtils.MustHandleError(err)
-}
-
 func initProductClient() {
 	var opts []client.Option
-	r, err := consul.NewConsulResolver(conf.GetConf().Hertz.RegistryAddr)
-	frontendUtils.MustHandleError(err)
-	opts = append(opts, client.WithResolver(r))
+
+	cbs := circuitbreak.NewCBSuite(func(ri rpcinfo.RPCInfo) string {
+		return circuitbreak.RPCInfo2Key(ri)
+	})
+	cbs.UpdateServiceCBConfig("shop-frontend/product/GetProduct", circuitbreak.CBConfig{Enable: true, ErrRate: 0.5, MinSample: 2})
+
+	opts = append(opts, commonSuite, client.WithCircuitBreaker(cbs), client.WithFallback(fallback.NewFallbackPolicy(fallback.UnwrapHelper(func(ctx context.Context, req, resp interface{}, err error) (fbResp interface{}, fbErr error) {
+		methodName := rpcinfo.GetRPCInfo(ctx).To().Method()
+		if err == nil {
+			return resp, err
+		}
+		if methodName != "ListProducts" {
+			return resp, err
+		}
+		return &product.ListProductsResp{
+			Products: []*product.Product{
+				{
+					Price:       6.6,
+					Id:          3,
+					Picture:     "/static/image/t-shirt.jpeg",
+					Name:        "T-Shirt",
+					Description: "CloudWeGo T-Shirt",
+				},
+			},
+		}, nil
+	}))))
+	opts = append(opts, client.WithTracer(prometheus.NewClientTracer("", "", prometheus.WithDisableServer(true), prometheus.WithRegistry(mtl.Registry))))
+
 	ProductClient, err = productcatalogservice.NewClient("product", opts...)
 	frontendUtils.MustHandleError(err)
 }
 
-func initCartClient() {
-	var opts []client.Option
-	r, err := consul.NewConsulResolver(conf.GetConf().Hertz.RegistryAddr)
-	frontendUtils.MustHandleError(err)
-	opts = append(opts, client.WithResolver(r))
-	CartClient, err = cartservice.NewClient("cart", opts...)
+func initUserClient() {
+	UserClient, err = userservice.NewClient("user", commonSuite)
 	frontendUtils.MustHandleError(err)
 }
 
-func initCheckOutClient() {
-	var opts []client.Option
-	r, err := consul.NewConsulResolver(conf.GetConf().Hertz.RegistryAddr)
+func initCartClient() {
+	CartClient, err = cartservice.NewClient("cart", commonSuite)
 	frontendUtils.MustHandleError(err)
-	opts = append(opts, client.WithResolver(r))
-	CheckOutClient, err = checkoutservice.NewClient("checkout", opts...)
+}
+
+func initCheckoutClient() {
+	CheckoutClient, err = checkoutservice.NewClient("checkout", commonSuite)
 	frontendUtils.MustHandleError(err)
 }
 
 func initOrderClient() {
-	var opts []client.Option
-	r, err := consul.NewConsulResolver(conf.GetConf().Hertz.RegistryAddr)
-	frontendUtils.MustHandleError(err)
-	opts = append(opts, client.WithResolver(r))
-	OrderClient, err = orderservice.NewClient("order", opts...)
+	OrderClient, err = orderservice.NewClient("order", commonSuite)
 	frontendUtils.MustHandleError(err)
 }

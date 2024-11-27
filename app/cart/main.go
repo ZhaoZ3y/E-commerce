@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	"github.com/joho/godotenv"
 	"github.com/v2pro/plz/countlog/output/lumberjack"
 	"gomall/app/cart/biz/dal"
@@ -27,6 +28,8 @@ var (
 func main() {
 	_ = godotenv.Load()
 	mtl.Init(ServiceName, conf.GetConf().Kitex.MetricsPort, RegistryAddr)
+	p := mtl.InitTracing(ServiceName)
+	defer p.Shutdown(context.Background())
 	dal.Init()
 	rpc.InitClient()
 	opts := kitexInit()

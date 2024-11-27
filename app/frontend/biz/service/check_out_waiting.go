@@ -24,7 +24,7 @@ func NewCheckOutWaitingService(Context context.Context, RequestContext *app.Requ
 func (h *CheckOutWaitingService) Run(req *checkout_page.CheckoutReq) (resp map[string]any, err error) {
 	// todo use checkout svc api
 	userId := frontendUtils.GetUserIDFromCtx(h.Context)
-	_, err = rpc.CheckOutClient.CheccOut(h.Context, &check_out.CheckOutReq{
+	_, err = rpc.CheckoutClient.CheccOut(h.Context, &check_out.CheckOutReq{
 		UserId:    int64(userId),
 		Email:     req.Email,
 		Firstname: req.Firstname,

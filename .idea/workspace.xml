@@ -5,60 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dc590fba-7208-4bd8-bd36-46455538140a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/common/clientsuite/clientsuite.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/mtl/metrics.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/serversuite/serversuite.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deploy/config/prometheus.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deploy/grafana.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/mtl/tracing.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/cart/conf/conf.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/cart/conf/conf.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/cart/conf/dev/conf.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/cart/conf/dev/conf.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/cart/conf/online/conf.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/cart/conf/online/conf.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/cart/conf/test/conf.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/cart/conf/test/conf.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/cart/biz/dal/mysql/init.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/cart/biz/dal/mysql/init.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/cart/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/app/cart/go.mod" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/cart/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/app/cart/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/cart/infra/rpc/client.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/cart/infra/rpc/client.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/cart/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/cart/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/checkout/conf/conf.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/checkout/conf/conf.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/checkout/conf/dev/conf.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/checkout/conf/dev/conf.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/checkout/conf/online/conf.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/checkout/conf/online/conf.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/checkout/conf/test/conf.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/checkout/conf/test/conf.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/checkout/infra/rpc/client.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/checkout/infra/rpc/client.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/checkout/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/checkout/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/email/conf/conf.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/email/conf/conf.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/email/conf/dev/conf.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/email/conf/dev/conf.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/email/conf/online/conf.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/email/conf/online/conf.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/email/conf/test/conf.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/email/conf/test/conf.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/email/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/email/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/frontend/conf/conf.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/conf/conf.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/frontend/conf/test/conf.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/conf/test/conf.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/checkout/biz/service/checc_out.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/checkout/biz/service/checc_out.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/email/biz/consumer/email/email.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/email/biz/consumer/email/email.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/frontend/biz/service/check_out_waiting.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/biz/service/check_out_waiting.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/frontend/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/go.mod" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/frontend/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/frontend/infra/rpc/client.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/infra/rpc/client.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/frontend/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/frontend/utils/constant.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/utils/constant.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/order/conf/conf.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/order/conf/conf.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/order/conf/dev/conf.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/order/conf/dev/conf.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/order/conf/online/conf.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/order/conf/online/conf.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/order/conf/test/conf.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/order/conf/test/conf.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/order/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/order/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/payment/conf/conf.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/payment/conf/conf.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/payment/conf/dev/conf.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/payment/conf/dev/conf.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/payment/conf/online/conf.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/payment/conf/online/conf.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/payment/conf/test/conf.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/payment/conf/test/conf.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/payment/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/payment/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/product/conf/conf.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/product/conf/conf.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/product/conf/dev/conf.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/product/conf/dev/conf.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/product/conf/online/conf.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/product/conf/online/conf.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/product/conf/test/conf.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/product/conf/test/conf.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/product/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/product/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/user/conf/conf.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/user/conf/conf.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/user/conf/dev/conf.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/user/conf/dev/conf.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/user/conf/online/conf.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/user/conf/online/conf.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/user/conf/test/conf.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/user/conf/test/conf.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/user/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/user/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/clientsuite/clientsuite.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/clientsuite/clientsuite.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/common/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/common/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/serversuite/serversuite.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/serversuite/serversuite.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.work" beforeDir="false" afterPath="$PROJECT_DIR$/go.work" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.work.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.work.sum" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -69,8 +34,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Go File" />
         <option value="tsconfig.json" />
+        <option value="Go File" />
+        <option value="Dockerfile" />
       </list>
     </option>
   </component>
