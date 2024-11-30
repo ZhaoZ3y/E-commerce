@@ -18,7 +18,7 @@ gen-cart:
 .PHONY: gen-payment
 gen-payment:
 	@cd rpc_gen && cwgo client --type RPC --service payment --module ${MOD}/rpc_gen --I ../idl --idl ../idl/payment.thrift
-	@cd app/payment && cwgo server --type RPC --service payment --module ${MOD}/app/payment --pass "-use gomall/rpc_gen/kitex_gen" -I ../../idl --idl ../../idl/payment.thrift && rmdir /s /q kitex_gen
+	@cd app/payment && cwgo server --type RPC	 --service payment --module ${MOD}/app/payment --pass "-use gomall/rpc_gen/kitex_gen" -I ../../idl --idl ../../idl/payment.thrift && rmdir /s /q kitex_gen
 .PHONY: gen-checkout
 gen-checkout:
 	@cd rpc_gen && cwgo client --type RPC --service checkout --module ${MOD}/rpc_gen --I ../idl --idl ../idl/checkout.thrift
@@ -31,3 +31,19 @@ gen-order:
 gen-email:
 	@cd rpc_gen && cwgo client --type RPC --service email --module ${MOD}/rpc_gen --I ../idl --idl ../idl/email.thrift
 	@cd app/email && cwgo server --type RPC --service email --module ${MOD}/app/email --pass "-use gomall/rpc_gen/kitex_gen" -I ../../idl --idl ../../idl/email.thrift && rmdir /s /q kitex_gen
+.PHONY: tidy-all
+tidy-all:
+	@cd app/frontend && go mod tidy
+	@cd app/user && go mod tidy
+	@cd app/product && go mod tidy
+	@cd app/cart && go mod tidy
+	@cd app/payment && go mod tidy
+	@cd app/checkout && go mod tidy
+	@cd app/order && go mod tidy
+	@cd app/email && go mod tidy
+.PHONY: build-frontend
+build-frontend:
+	docker build -f ./deploy/Dockerfile.frontend -t frontend:${v} .
+.PHONY: build-svc
+build-svc:
+	docker build -f ./deploy/Dockerfile.svc -t ${svc}:${v} --build-arg SVC=${svc} .
